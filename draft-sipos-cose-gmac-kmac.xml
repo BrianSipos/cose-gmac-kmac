@@ -37,7 +37,7 @@ Unlike the use of AES-GMAC in CMS <xref target="RFC9044"/> and IPsec <xref targe
         <t>
 This document does not define any new algorithms it only defines code points in COSE and JOSE registries so that the AES-GMAC and KMAC can be used in those respective security environments with specific combinations of parameters.
         </t>
-	<t>
+        <t>
 To avoid confusion, the AES-GMAC algorithm family specified in this document is unrelated to the "AES-MAC" algorithm family from <xref section="3.2" target="RFC9053"/>.
 	</t>
       </section>
@@ -74,15 +74,15 @@ The use of the AES-GMAC algorithms in COSE <bcp14>SHALL</bcp14> be combined with
 A valid IV for these algorithms <bcp14>SHALL</bcp14> be exactly 96 bits (12 octets) in length.
 The combination of key and IV <bcp14>SHALL</bcp14> be unique for each created MAC.
 	</t>
-	<t>
+        <t>
 These IV and tag lengths are consistent with the COSE use of AES-GCM encryption in <xref section="4.1" target="RFC9053"/>.
 	</t>
         <table anchor="tab-fam-aesgmac">
-	  <name>Registered AES-GMAC combinations</name>
+          <name>Registered AES-GMAC combinations</name>
           <thead>
             <tr>
-	      <th>COSE Value</th>
-	      <th>JOSE Name</th>
+              <th>COSE Value</th>
+              <th>JOSE Name</th>
               <th>Algorithm</th>
               <th>Key Length</th>
               <th>IV Length</th>
@@ -91,24 +91,30 @@ These IV and tag lengths are consistent with the COSE use of AES-GCM encryption 
           </thead>
           <tbody>
             <tr>
-	      <td><cref>TBA1</cref></td>
-	      <td>A128GMAC128</td>
+              <td>
+                <cref>TBA1</cref>
+              </td>
+              <td>A128GMAC128</td>
               <td>AES-GMAC</td>
               <td>128</td>
               <td>96</td>
               <td>128</td>
             </tr>
             <tr>
-	      <td><cref>TBA2</cref></td>
-	      <td>A192GMAC128</td>
+              <td>
+                <cref>TBA2</cref>
+              </td>
+              <td>A192GMAC128</td>
               <td>AES-GMAC</td>
               <td>192</td>
               <td>96</td>
               <td>128</td>
             </tr>
             <tr>
-	      <td><cref>TBA3</cref></td>
-	      <td>A256GMAC128</td>
+              <td>
+                <cref>TBA3</cref>
+              </td>
+              <td>A256GMAC128</td>
               <td>AES-GMAC</td>
               <td>256</td>
               <td>96</td>
@@ -146,11 +152,11 @@ When used with COSE the KMAC customization bit string <bcp14>SHALL</bcp14> be th
 When used with JOSE the KMAC customization bit string <bcp14>SHALL</bcp14> be the ASCII <xref target="RFC20"/> text string "JOSE" without null termination.
 	</t>
         <table anchor="tab-fam-kmac">
-	  <name>Registered KMAC combinations</name>
+          <name>Registered KMAC combinations</name>
           <thead>
             <tr>
-	      <th>COSE Value</th>
-	      <th>JOSE Name</th>
+              <th>COSE Value</th>
+              <th>JOSE Name</th>
               <th>Algorithm</th>
               <th>Key Length</th>
               <th>Tag Length</th>
@@ -158,15 +164,19 @@ When used with JOSE the KMAC customization bit string <bcp14>SHALL</bcp14> be th
           </thead>
           <tbody>
             <tr>
-	      <td><cref>TBA4</cref></td>
-	      <td>KMAC128</td>
+              <td>
+                <cref>TBA4</cref>
+              </td>
+              <td>KMAC128</td>
               <td>KMAC128</td>
               <td>128</td>
               <td>256</td>
             </tr>
             <tr>
-	      <td><cref>TBA5</cref></td>
-	      <td>KMAC256</td>
+              <td>
+                <cref>TBA5</cref>
+              </td>
+              <td>KMAC256</td>
               <td>KMAC256</td>
               <td>256</td>
               <td>512</td>
