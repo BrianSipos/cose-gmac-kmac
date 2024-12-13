@@ -52,13 +52,13 @@ as shown here.
         </t>
       </section>
     </section>
-    <section>
+    <section anchor="sec-algo">
       <name>Algorithm Families</name>
       <t>
 Both the AES-GMAC algorithm from <xref target="NIST-SP800-38D"/> and the KMAC algorithm from <xref target="NIST-SP800-185"/> have a set of parameters associated with their uses.
 For the sake of adhering to COSE and JOSE best practices about fully specifying what gets assigned an "algorithm" code point in each respective registry, the AES-GMAC and KMAC will be treated as an <em>algorithm family</em> with a single code point referring to the algorithm itself along with a specific set of parameter values.
       </t>
-      <section>
+      <section anchor="sec-algo-gmac">
         <name>AES-GMAC Family</name>
         <t>
 While the general GMAC algorithm can be used with any underlying authenticated encryption with additional data (AEAD) block cipher, this document focuses on its use with the AES-GCM cipher.
@@ -73,6 +73,8 @@ One required input for AES-GMAC is an initialization vector (IV) which is alread
 The use of the AES-GMAC algorithms in COSE <bcp14>SHALL</bcp14> be combined with the IV header parameter in the same COSE layer.
 A valid IV for these algorithms <bcp14>SHALL</bcp14> be exactly 96 bits (12 octets) in length.
 The combination of key and IV <bcp14>SHALL</bcp14> be unique for each created MAC.
+The IV generation mechanism <bcp14>SHALL</bcp14> be deterministic (not random).
+The specifics of that mechanism are left to an implementation.
 	</t>
         <t>
 These IV and tag lengths are consistent with the COSE use of AES-GCM encryption in <xref section="4.1" target="RFC9053"/>.
@@ -203,6 +205,10 @@ When using a COSE key for these algorithms, the following checks are made:
       <t>
 This document does not define any new modes of operation for the relevant MAC algorithms, and so does not introduce any new security considerations.
 All of the applicable considerations from <xref target="NIST-SP800-38D"/> and <xref target="NIST-SP800-185"/> apply when the algorithm is used in COSE or JOSE.
+      </t>
+      <t>
+The requirement to use non-random IV generation in <xref target="sec-algo-gmac"/> is meant to satisfy the critical constraint on GMAC (and nonce-based MACs generally) described in Chapter 10 of <xref target="PR2011"/> to guarantee the uniqueness of the combination of key and IV.
+Whether the mechanism is a simple counter, a determistic PRF, or something else does not affect the constraint to be non-random.
       </t>
     </section>
     <section anchor="sec-iana">
@@ -498,6 +504,18 @@ A new set of entries have been added to the "JSON Web Signature and Encryption A
       </references>
       <references>
         <name>Informative References</name>
+	<reference anchor="PR2011" target="https://www.cs.ucdavis.edu/~rogaway/papers/modes.pdf">
+          <front>
+            <title>Evaluation of Some Blockcipher Modes of Operation</title>
+            <author fullname="Phillip Rogaway">
+              <organization>University of California, Davis</organization>
+              <address>
+                <email>rogaway@cs.ucdavis.edu</email>
+              </address>
+            </author>
+            <date day="10" month="February" year="2011"/>
+          </front>
+	</reference>
         <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.1155.xml"/>
         <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.4543.xml"/>
         <xi:include href="https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8702.xml"/>
