@@ -1,9 +1,9 @@
-# GMAC and KMAC for COSE and JOSE
+# AES-GMAC for COSE
 
-The internet-draft is tracked as [draft-sipos-cose-gmac-kmac](https://datatracker.ietf.org/doc/draft-sipos-cose-gmac-kmac/).
+The internet-draft is tracked as [draft-sipos-cose-gmac](https://datatracker.ietf.org/doc/draft-sipos-cose-gmac/).
 
-A local build of the current main branch is available [draft-sipos-cose-gmac-kmac.html](https://briansipos.github.io/cose-gmac-kmac/draft-sipos-cose-gmac.html).
-A difference from the datatracker draft and this local version can be [viewed side-by-side](https://author-tools.ietf.org/diff?doc_1=draft-sipos-cose-gmac&url_2=https://briansipos.github.io/cose-gmac-kmac/draft-sipos-cose-gmac.txt&raw=1).
+A local build of the current main branch is available [draft-sipos-cose-gmac.html](https://briansipos.github.io/cose-gmac/draft-sipos-cose-gmac.html).
+A difference from the datatracker draft and this local version can be [viewed side-by-side](https://author-tools.ietf.org/diff?doc_1=draft-sipos-cose-gmac&url_2=https://briansipos.github.io/cose-gmac/draft-sipos-cose-gmac.txt&raw=1).
 
 Prerequisites to building can be installed on Ubuntu with:
 ```
