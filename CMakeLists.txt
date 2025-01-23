@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(
-    draft-sipos-cose-gmac-kmac
+    draft-sipos-cose-gmac
     LANGUAGES
 )
 
